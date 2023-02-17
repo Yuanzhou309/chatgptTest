@@ -27,6 +27,6 @@ jobs:
           eval "$(ssh-agent -s)"
           echo "$SSH_PRIVATE_KEY" | ssh-add -
           echo "$SSH_PRIVATE_KEY" > mykey.pem
-          ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "ls"
+          ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "git clone https://github.com/Yuanzhou309/chatgptTest.git"
 
         
