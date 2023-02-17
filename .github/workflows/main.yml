@@ -31,7 +31,7 @@ jobs:
           ls -la
           ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "ls"
           
-          rsync -r -e "ssh -i mykey.pem -o StrictHostKeyChecking=no" . ubuntu@$HOST:$REMOTE_PATH/
+          sudo rsync -r -e "ssh -i mykey.pem -o StrictHostKeyChecking=no" . ubuntu@$HOST:$REMOTE_PATH/
         
 
         
