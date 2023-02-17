@@ -27,6 +27,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           LOCAL_PATH: $GITHUB_WORKSPACE
+          REMOTE_PATH: /home/ubuntu/chatgptTest
           HOST: 3.26.73.244
         run: |
           eval "$(ssh-agent -s)"
@@ -36,7 +37,7 @@ jobs:
           ls -la
           ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "ls"
           
-          sudo rsync -r -v -e "ssh -i mykey.pem -o StrictHostKeyChecking=no" $LOCAL_PATH ubuntu@$HOST:/home/ubuntu/chatgptTest
+          sudo rsync -r -v -e "ssh -i mykey.pem -o StrictHostKeyChecking=no" . ubuntu@$HOST:$REMOTE_PATH
         
 
         
