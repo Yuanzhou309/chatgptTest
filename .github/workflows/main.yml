@@ -36,7 +36,7 @@ jobs:
           ls -la
           ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "ls"
           
-          sudo rsync -r -v -e "ssh -i mykey.pem -o StrictHostKeyChecking=no" $LOCAL_PATH/ ubuntu@$HOST:/home/ubuntu/chatgptTest
+          sudo rsync -r -v -e "ssh -i mykey.pem -o StrictHostKeyChecking=no" $LOCAL_PATH ubuntu@$HOST:/home/ubuntu/chatgptTest
         
 
         
