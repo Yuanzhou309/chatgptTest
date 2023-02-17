@@ -12,7 +12,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 
 app.get('/', (_req, res) => {
-  res.send('Hello, World!');
+  res.send('Hello, kevin!');
 });
 
 export default app
