@@ -17,8 +17,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y sshpass
-          ssh-agent /bin/sh
-          ssh-add $SSH_PRIVATE_KEY
+
 
       - name: Sync code to EC2
         env:
