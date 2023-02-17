@@ -29,7 +29,7 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > mykey.pem
           chmod 400 mykey.pem
           ls -la
-          ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "
+          ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "ls"
           rsync -avz -e ssh ./ ubuntu@remote:/home/ubuntu/"
         
 
