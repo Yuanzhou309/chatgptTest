@@ -27,6 +27,7 @@ jobs:
           eval "$(ssh-agent -s)"
           echo "$SSH_PRIVATE_KEY" | ssh-add -
           echo "$SSH_PRIVATE_KEY" > mykey.pem
-          ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "git clone https://github.com/Yuanzhou309/chatgptTest.git"
+          ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "ls"
+          sshpass -p '' rsync -r -e "ssh -t -t -i mykey.pem -o StrictHostKeyChecking=no" $LOCAL_PATH/ ec2-user@$HOST:$REMOTE_PATH/
 
         
