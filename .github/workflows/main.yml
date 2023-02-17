@@ -25,6 +25,6 @@ jobs:
           HOST: 3.26.73.244
         run: |
           echo "$SSH_PRIVATE_KEY" > mykey.pem
-          ssh -i mykey.pem ubuntu@$HOST
+          ssh -t -i mykey.pem ubuntu@$HOST "ls"
 
         
