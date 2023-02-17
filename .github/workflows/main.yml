@@ -27,4 +27,4 @@ jobs:
           LOCAL_PATH: $GITHUB_WORKSPACE
         run: |
           echo "$SSH_PRIVATE_KEY" > mykey.pem
-          ssh -i mykey.pem ubuntu@$HOST
+          ssh -t -t -i mykey.pem ubuntu@$HOST
