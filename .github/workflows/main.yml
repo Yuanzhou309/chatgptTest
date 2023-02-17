@@ -26,4 +26,4 @@ jobs:
           LOCAL_PATH: $GITHUB_WORKSPACE
         run: |
           echo "$SSH_PRIVATE_KEY" | ssh-add -
-          ssh -i $SSH_PRIVATE_KEY ubuntu@$HOST
+
