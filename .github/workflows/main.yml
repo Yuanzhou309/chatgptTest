@@ -21,14 +21,16 @@ jobs:
       - name: SSH to EC2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
+          LOCAL_PATH: $GITHUB_WORKSPACE
           HOST: 3.26.73.244
         run: |
           eval "$(ssh-agent -s)"
           echo "$SSH_PRIVATE_KEY" | ssh-add -
           echo "$SSH_PRIVATE_KEY" > mykey.pem
           chmod 400 mykey.pem
-          ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "ls"
-          sshpass -p '' rsync -r -e "ssh -t -t -i mykey.pem -o StrictHostKeyChecking=no" $LOCAL_PATH/ ec2-user@$HOST:$REMOTE_PATH/
+          ls -la
+          ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "
+          rsync -avz -e ssh ./ ubuntu@remote:/home/ubuntu/"
+        
 
         
