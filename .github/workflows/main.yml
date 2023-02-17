@@ -26,4 +26,5 @@ jobs:
           LOCAL_PATH: $GITHUB_WORKSPACE
         run: |
           
+          
           sshpass -p '' rsync -r -e "ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no" $LOCAL_PATH/ ec2-user@$HOST:$REMOTE_PATH/
