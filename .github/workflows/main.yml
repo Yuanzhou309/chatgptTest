@@ -23,5 +23,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HOST: 3.26.73.244
         run: |
+          eval "$(ssh-agent -s)"
           echo "$SSH_PRIVATE_KEY" | ssh-add -
           ssh -i $SSH_PRIVATE_KEY ec2-user@$HOST
