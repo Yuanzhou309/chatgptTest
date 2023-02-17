@@ -30,7 +30,8 @@ jobs:
           chmod 400 mykey.pem
           ls -la
           ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "ls"
-          rsync -avz -e ssh ./ ubuntu@remote:/home/ubuntu/"
+          
+          rsync -r -e "ssh -i mykey.pem -o StrictHostKeyChecking=no" $LOCAL_PATH/ ubuntu@$HOST:$REMOTE_PATH/
         
 
         
