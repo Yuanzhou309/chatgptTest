@@ -17,7 +17,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y sshpass
-
+        
 
       - name: Sync code to EC2
         env:
@@ -26,4 +26,5 @@ jobs:
           REMOTE_PATH: /home/ubuntu/
           LOCAL_PATH: $GITHUB_WORKSPACE
         run: |
-          ssh -i $SSH_PRIVATE_KEY ec2-user@$HOST
+          echo "$SSH_PRIVATE_KEY" > mykey.pem
+          ssh -i mykey.pem ubuntu@$HOST
