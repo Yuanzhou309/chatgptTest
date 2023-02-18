@@ -30,7 +30,7 @@ jobs:
           npm install
           
       - name: test
-        run: npm test&npm start
+        run: npm test
         
           
 
