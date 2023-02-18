@@ -28,6 +28,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y sshpass
           npm install
+          npm --version
           
       - name: test
         run: npm start
