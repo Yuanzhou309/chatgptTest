@@ -22,7 +22,7 @@ jobs:
       run: |
         aws s3 sync . s3://mysamplebucket309
         aws s3 sync s3://mysamplebucket309 /tmp/my-folder/
-        
+        aws ssm start-session --target i-0aa025d31f6d2b69d --document-name AWS-StartInteractiveCommand --parameters "commands=sudo rm -rf /home/ubuntu/*,sudo mv /tmp/my-folder/* /home/ubuntu/"
         
 
         
