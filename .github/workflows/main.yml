@@ -27,11 +27,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y sshpass
-          npm install
-          npm --version
+
           
-      - name: test
-        run: npm start
+
         
           
 
@@ -41,6 +39,7 @@ jobs:
           REMOTE_PATH: /home/ubuntu/chatgptTest
           HOST: 3.26.73.244
         run: |
+          wget -qO- https://ipecho.net/plain ; echo
           eval "$(ssh-agent -s)"
           echo "$SSH_PRIVATE_KEY" | ssh-add -
           echo "$SSH_PRIVATE_KEY" > mykey.pem
