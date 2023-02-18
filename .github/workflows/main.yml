@@ -22,7 +22,7 @@ jobs:
       run: |
         aws s3 sync . s3://mysamplebucket309
         awscli --version
-        aws s3 cp s3://mysamplebucket309 ubuntu@3.26.73.244:/home/ubuntu/chatgptTest1 --recursive
+        aws s3 sync s3://mysamplebucket309 ubuntu@3.26.73.244 :/home/ubuntu/chatgptTest1
         
 
         
