@@ -1,11 +1,11 @@
-name: List S3 objects
+name: upload files to ec2
 on:
   push:
     branches:
       - main
 
 jobs:
-  list-s3-objects:
+  upload-file-to-ec2:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
