@@ -37,28 +37,22 @@ jobs:
         run: |
           npm test
           
+      - name: Install AWS CLI
+        uses: actions/aws/cli@v2
+        with:
+          aws-version: '2.4.0'
           
+      - name: Send command to EC2 instance
+        run: |
+          aws ec2 send-command --instance-ids i-0aa025d31f6d2b69d --document-name "AWS-RunShellScript" --parameters commands="echo 'Hello, world!'" --output text
+        env:
+          AWS_REGION: ap-southeast-2
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   
 
 
         
           
-
-      - name: SSH to EC2
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_PATH: /home/ubuntu/chatgptTest
-          HOST: 3.26.73.244
-        run: |
-          wget -qO- https://ipecho.net/plain ; echo
-          eval "$(ssh-agent -s)"
-          echo "$SSH_PRIVATE_KEY" | ssh-add -
-          echo "$SSH_PRIVATE_KEY" > mykey.pem
-          chmod 400 mykey.pem
-          ls -la
-          ssh -o StrictHostKeyChecking=no -t -t -i mykey.pem ubuntu@$HOST "ls"
-          
-          sudo rsync -r -v -e "ssh -i mykey.pem -o StrictHostKeyChecking=no" . ubuntu@$HOST:$REMOTE_PATH
-        
 
         
