@@ -17,16 +17,26 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
 
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y sshpass
+          npm install
+          
+      - name: Build and test
+        run: npm run build && npm test
+        
+          
 
       - name: SSH to EC2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          LOCAL_PATH: $GITHUB_WORKSPACE
           REMOTE_PATH: /home/ubuntu/chatgptTest
           HOST: 3.26.73.244
         run: |
