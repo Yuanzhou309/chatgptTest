@@ -21,8 +21,8 @@ jobs:
     - name: List objects in S3 bucket
       run: |
         aws s3 sync . s3://mysamplebucket309
-
-        aws s3 sync s3://mysamplebucket309 ubuntu@3.26.73.244:/home/ubuntu/chatgptTest
+        aws s3 sync s3://mysamplebucket309 /tmp/my-folder/
+        aws ssm start-session --target i-0aa025d31f6d2b69d --document-name AWS-StartInteractiveCommand --parameters "commands=sudo rm -rf /home/ubuntu/chatgptTest/*,sudo mv /tmp/my-folder/* /home/ubuntu/chatgptTest/"
         ls -la
         
 
