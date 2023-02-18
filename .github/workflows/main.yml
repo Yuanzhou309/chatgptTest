@@ -40,7 +40,7 @@ jobs:
       - name: Install AWS CLI
         uses: actions/aws/cli@v2
         with:
-          aws-version: '2.4.0'
+          aws-version: 'lastest'
           
       - name: Send command to EC2 instance
         run: |
