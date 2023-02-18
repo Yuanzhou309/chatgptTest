@@ -21,6 +21,6 @@ jobs:
     - name: List objects in S3 bucket
       run: |
         aws s3 sync . s3://mysamplebucket309
-        aws s3 sync s3://bucket-name/path/to/directory ec2-user@other-instance:/path/on/other-instance/
+        aws s3 sync s3://mysamplebucket309 ubuntu@3.26.73.244:/home/ubuntu/chatgptTest
 
         
