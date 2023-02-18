@@ -21,3 +21,4 @@ jobs:
       - name: Use AWS CLI
         run: |
           aws --version
+          aws ec2 send-command --instance-ids i-1234567890abcdef --document-name "AWS-RunShellScript" --parameters commands="echo 'Hello, world!'" --output text
