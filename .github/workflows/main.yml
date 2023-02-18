@@ -35,7 +35,7 @@ jobs:
           npm install
       - name: Run Npm TEST
         run: |
-          echo "run test"
+          npm test
           
           
   
