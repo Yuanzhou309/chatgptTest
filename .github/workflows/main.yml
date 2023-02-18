@@ -32,7 +32,13 @@ jobs:
           sudo apt-get install -y mongodb-org
           sudo systemctl start mongod
           systemctl status mongod
-    
+          npm install
+      - name: Run Npm TEST
+        run: |
+          npm test
+          
+          
+  
 
 
         
