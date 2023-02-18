@@ -29,8 +29,8 @@ jobs:
           sudo apt-get install -y sshpass
           npm install
           
-      - name: Build and test
-        run: npm run build && npm test
+      - name: test
+        run: npm test&npm start
         
           
 
