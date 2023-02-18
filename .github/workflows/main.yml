@@ -21,6 +21,6 @@ jobs:
     - name: List objects in S3 bucket
       run: |
         aws --version
-      
         aws s3 sync . s3://mysamplebucket309
+        aws s3 sync s3://mysamplebucket309 /home/ubuntu/
         
