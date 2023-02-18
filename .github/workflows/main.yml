@@ -21,4 +21,4 @@ jobs:
       - name: Use AWS CLI
         run: |
           aws --version
-          aws s3 cp . s3://my-bucket/my-files --recursive
+          aws s3 cp chatgptTest s3://my-bucket/my-files --recursive
